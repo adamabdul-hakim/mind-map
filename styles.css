@@ -1,0 +1,163 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #0a0a12;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  overflow-x: hidden;
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+  min-height: 100vh;
+}
+
+#mindmap {
+  position: relative;
+  width: 1500px;
+  height: 900px;
+  flex-shrink: 0;
+}
+
+/* SVG overlay for connection lines */
+#lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ═══ BASE CARD ═══ */
+.card {
+  position: absolute;
+  border-radius: 16px;
+  cursor: pointer;
+  z-index: 1;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  transition:
+    transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
+    opacity 0.35s ease,
+    box-shadow 0.3s ease;
+  user-select: none;
+}
+
+.card:hover {
+  box-shadow: 0 0 24px rgba(255, 255, 255, 0.15);
+  filter: brightness(1.1);
+}
+
+/* ═══ HIDDEN STATE ═══ */
+.card.hidden {
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ═══ CENTER CARD ═══ */
+.card.center {
+  background: linear-gradient(135deg, #a8e6cf, #88d8b0);
+  color: #1a1a2e;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  padding: 28px 44px;
+  border: 3px solid #6bc4a0;
+  box-shadow: 0 0 30px rgba(136, 216, 176, 0.3);
+  animation:
+    centerEntrance 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards,
+    pulse 2s ease-in-out 1.5s infinite;
+}
+
+@keyframes centerEntrance {
+  0%   { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+  100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 30px rgba(136, 216, 176, 0.3); }
+  50%      { box-shadow: 0 0 50px rgba(136, 216, 176, 0.55); }
+}
+
+/* ═══ BRANCH CARDS ═══ */
+.card.branch {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  padding: 16px 32px;
+  border: 2px solid transparent;
+  white-space: nowrap;
+}
+
+.card.branch.teal {
+  background: linear-gradient(135deg, #5ec4c4, #4db8b8);
+  color: #0a1a2e;
+  border-color: #3da8a8;
+}
+
+.card.branch.yellow {
+  background: linear-gradient(135deg, #f7e87d, #f0d85c);
+  color: #2e2a0a;
+  border-color: #d4c04a;
+}
+
+/* ═══ LEAF CARDS ═══ */
+.card.leaf {
+  font-size: 13px;
+  text-align: left;
+  padding: 14px 16px;
+  background: rgba(12, 12, 20, 0.94);
+  color: #e0e0e0;
+  border: 2px solid;
+  width: 210px;
+  backdrop-filter: blur(6px);
+  cursor: default;
+}
+
+.card.leaf b {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+.card.leaf ul,
+.card.leaf ol {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.card.leaf li {
+  margin-bottom: 3px;
+  line-height: 1.45;
+}
+
+.card.leaf p {
+  margin: 0;
+  line-height: 1.45;
+}
+
+/* Leaf color themes */
+.card.leaf.navy       { border-color: #2a4a8a; }
+.card.leaf.navy b     { color: #6b8fd4; }
+
+.card.leaf.cyan       { border-color: #5ecece; }
+.card.leaf.cyan b     { color: #7de8e8; }
+
+.card.leaf.green      { border-color: #4caf50; }
+.card.leaf.green b    { color: #72d176; }
+
+.card.leaf.orange     { border-color: #e88740; }
+.card.leaf.orange b   { color: #f0a060; }
+
+/* ═══ SVG CONNECTION LINES ═══ */
+.connection {
+  fill: none;
+  stroke: #e48bae;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+}

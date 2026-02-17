@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Axiomatic Systems & Incidence Geometry</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div id="mindmap">
+  <svg id="lines"></svg>
+
+  <!-- CENTER -->
+  <div class="card center" id="center">
+    AXIOMATIC SYSTEMS &amp;<br>INCIDENCE GEOMETRY
+  </div>
+
+  <!-- BRANCHES (Level 1) -->
+  <div class="card branch teal hidden" id="structure" data-parent="center">
+    2.1 STRUCTURE
+  </div>
+  <div class="card branch teal hidden" id="incidence" data-parent="center">
+    2.2 INCIDENCE GEOMETRY
+  </div>
+  <div class="card branch yellow hidden" id="parallel" data-parent="center">
+    2.3 PARALLEL POSTULATES
+  </div>
+  <div class="card branch teal hidden" id="realworld" data-parent="center">
+    2.4 REAL WORLD
+  </div>
+
+  <!-- LEAVES: Structure children -->
+  <div class="card leaf navy hidden" id="undef-terms" data-parent="structure">
+    <b>Undefined Terms</b>
+    <ul>
+      <li>point, line, lie on</li>
+      <li>Can&rsquo;t define everything!</li>
+    </ul>
+  </div>
+  <div class="card leaf navy hidden" id="definitions" data-parent="structure">
+    <b>Definitions</b>
+    <ul>
+      <li>Built from undefined terms, eg: collinear</li>
+    </ul>
+  </div>
+  <div class="card leaf navy hidden" id="axioms-struct" data-parent="structure">
+    <b>Axioms</b>
+    <ul>
+      <li>Accepted without proof</li>
+      <li>Starting point</li>
+    </ul>
+  </div>
+  <div class="card leaf navy hidden" id="theorems" data-parent="structure">
+    <b>Theorems</b>
+    <ul>
+      <li>Proved from axioms</li>
+      <li>Lemma, Corollary</li>
+    </ul>
+  </div>
+  <div class="card leaf navy hidden" id="models-struct" data-parent="structure">
+    <b>Models</b>
+    <ul>
+      <li>Interpretations where axioms are true</li>
+    </ul>
+  </div>
+
+  <!-- LEAVES: Incidence Geometry children -->
+  <div class="card leaf cyan hidden" id="axioms3" data-parent="incidence">
+    <b>3 Axioms</b>
+    <ol>
+      <li>Two pts &rarr; one line</li>
+      <li>Line has &ge; 2 pts</li>
+      <li>Three non-collinear pts</li>
+    </ol>
+  </div>
+  <div class="card leaf cyan hidden" id="finite-models" data-parent="incidence">
+    <b>Finite Models</b>
+    <p>3-pt plane, 4-pt geometry, Fano&rsquo;s</p>
+  </div>
+  <div class="card leaf cyan hidden" id="infinite-models" data-parent="incidence">
+    <b>Infinite Models</b>
+    <p>Cartesian plane</p>
+  </div>
+  <div class="card leaf cyan hidden" id="isomorphism" data-parent="incidence">
+    <b>Isomorphism</b>
+    <p>Same structure, different labels</p>
+  </div>
+
+  <!-- LEAVES: Parallel Postulates children -->
+  <div class="card leaf green hidden" id="par-definition" data-parent="parallel">
+    <b>Definition</b>
+    <ul>
+      <li>Lines don&rsquo;t intersect</li>
+      <li>Line &ne; parallel to itself</li>
+    </ul>
+  </div>
+  <div class="card leaf green hidden" id="euclidean" data-parent="parallel">
+    <b>Euclidean</b>
+    <ul>
+      <li>Exactly 1 parallel</li>
+      <li>eg: Cartesian plane</li>
+    </ul>
+  </div>
+  <div class="card leaf green hidden" id="elliptic" data-parent="parallel">
+    <b>Elliptic</b>
+    <ul>
+      <li>No parallels</li>
+      <li>Ex: 3-point plane</li>
+    </ul>
+  </div>
+  <div class="card leaf green hidden" id="hyperbolic" data-parent="parallel">
+    <b>Hyperbolic</b>
+    <ul>
+      <li>At least 2 parallels</li>
+    </ul>
+  </div>
+
+  <!-- LEAVES: Real World children -->
+  <div class="card leaf orange hidden" id="greek-view" data-parent="realworld">
+    <b>Greek View</b>
+    <ul>
+      <li>Ideal forms</li>
+      <li>Self-evident truths</li>
+    </ul>
+  </div>
+  <div class="card leaf orange hidden" id="modern-view" data-parent="realworld">
+    <b>Modern View</b>
+    <ul>
+      <li>Axioms not absolutely true</li>
+      <li>Depends on interpretation</li>
+    </ul>
+  </div>
+  <div class="card leaf orange hidden" id="big-questions" data-parent="realworld">
+    <b>Big Questions</b>
+    <ul>
+      <li>Are theorems true?</li>
+      <li>What are point &amp; line?</li>
+      <li>Which axioms fit reality?</li>
+    </ul>
+  </div>
+  <div class="card leaf orange hidden" id="power" data-parent="realworld">
+    <b>Power</b>
+    <ul>
+      <li>Abstraction gives math its strength</li>
+    </ul>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
