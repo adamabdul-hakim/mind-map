@@ -45,9 +45,27 @@ const positions = {
 const expanded = new Set();
 const lineElements = {};
 
+/* ═══ RESPONSIVE SCALING ═══ */
+function scaleMindmap() {
+  const map = document.getElementById('mindmap');
+  const baseWidth = 1500;
+  const vw = window.innerWidth;
+  if (vw < baseWidth) {
+    const scale = vw / baseWidth;
+    map.style.transform = `scale(${scale})`;
+    map.style.height = (900 * scale) + 'px';
+  } else {
+    map.style.transform = 'scale(1)';
+    map.style.height = '900px';
+  }
+}
+
 /* ═══ INIT ═══ */
 document.addEventListener('DOMContentLoaded', () => {
   const svg = document.getElementById('lines');
+
+  scaleMindmap();
+  window.addEventListener('resize', scaleMindmap);
 
   // SVG arrow marker
   svg.innerHTML = `
