@@ -18,4 +18,6 @@ An interactive mind map covering Chapter 2 of Foundations of Geometry (MAT 320).
 
 ## Tech
 
-HTML · CSS · JavaScript — no dependencies, just open `index.html` in a browser.
+HTML · CSS · JavaScript — no dependencies.
+
+**Live demo:** [adamabdul-hakim.github.io/mind-map](https://adamabdul-hakim.github.io/mind-map/)
