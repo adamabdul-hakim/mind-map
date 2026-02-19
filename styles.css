@@ -5,7 +5,7 @@
 }
 
 body {
-  background: #0a0a12;
+  background: #1a1b2e;
   font-family: 'Segoe UI', Arial, sans-serif;
   overflow-x: hidden;
   display: flex;
@@ -50,8 +50,8 @@ body {
 }
 
 .card:hover {
-  box-shadow: 0 0 24px rgba(255, 255, 255, 0.15);
-  filter: brightness(1.1);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  filter: brightness(1.08);
 }
 
 /* ═══ HIDDEN STATE ═══ */
@@ -63,17 +63,17 @@ body {
 
 /* ═══ CENTER CARD ═══ */
 .card.center {
-  background: linear-gradient(135deg, #a8e6cf, #88d8b0);
-  color: #1a1a2e;
+  background: linear-gradient(135deg, #f0ece2, #e8e4d8);
+  color: #1a1b2e;
   font-size: 18px;
   font-weight: 800;
   letter-spacing: 1px;
   padding: 28px 44px;
-  border: 3px solid #6bc4a0;
-  box-shadow: 0 0 30px rgba(136, 216, 176, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0 30px rgba(240, 236, 226, 0.15);
   animation:
     centerEntrance 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards,
-    pulse 2s ease-in-out 1.5s infinite;
+    pulse 2.5s ease-in-out 1.5s infinite;
 }
 
 @keyframes centerEntrance {
@@ -82,8 +82,8 @@ body {
 }
 
 @keyframes pulse {
-  0%, 100% { box-shadow: 0 0 30px rgba(136, 216, 176, 0.3); }
-  50%      { box-shadow: 0 0 50px rgba(136, 216, 176, 0.55); }
+  0%, 100% { box-shadow: 0 0 30px rgba(240, 236, 226, 0.15); }
+  50%      { box-shadow: 0 0 50px rgba(240, 236, 226, 0.3); }
 }
 
 /* ═══ BRANCH CARDS ═══ */
@@ -96,16 +96,32 @@ body {
   white-space: nowrap;
 }
 
-.card.branch.teal {
-  background: linear-gradient(135deg, #5ec4c4, #4db8b8);
-  color: #0a1a2e;
-  border-color: #3da8a8;
+/* Branch: Structure — dusty blue */
+.card.branch[id="structure"] {
+  background: linear-gradient(135deg, #7b9cc4, #6a8bb8);
+  color: #0e1520;
+  border-color: #5a7aa8;
 }
 
-.card.branch.yellow {
-  background: linear-gradient(135deg, #f7e87d, #f0d85c);
-  color: #2e2a0a;
-  border-color: #d4c04a;
+/* Branch: Incidence — sage green */
+.card.branch[id="incidence"] {
+  background: linear-gradient(135deg, #7daf8e, #6ca37e);
+  color: #0e1a12;
+  border-color: #5a9370;
+}
+
+/* Branch: Parallel — warm sand */
+.card.branch[id="parallel"] {
+  background: linear-gradient(135deg, #d4b896, #c8a882);
+  color: #1e1810;
+  border-color: #b8986a;
+}
+
+/* Branch: Real World — soft lavender */
+.card.branch[id="realworld"] {
+  background: linear-gradient(135deg, #a893c4, #9a82b8);
+  color: #14101e;
+  border-color: #8a72a8;
 }
 
 /* ═══ LEAF CARDS ═══ */
@@ -113,12 +129,31 @@ body {
   font-size: 13px;
   text-align: left;
   padding: 14px 16px;
-  background: rgba(12, 12, 20, 0.94);
-  color: #e0e0e0;
+  background: rgba(22, 23, 40, 0.92);
+  color: #e8e6e3;
   border: 2px solid;
+  border-left: 4px solid;
   width: 210px;
-  backdrop-filter: blur(6px);
-  cursor: default;
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+}
+
+.card.leaf:hover {
+  transform: translate(-50%, -50%) scale(1.04);
+}
+
+.card.leaf::after {
+  content: '🔍';
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  font-size: 11px;
+  opacity: 0.4;
+  transition: opacity 0.2s;
+}
+
+.card.leaf:hover::after {
+  opacity: 0.8;
 }
 
 .card.leaf b {
@@ -143,23 +178,104 @@ body {
   line-height: 1.45;
 }
 
-/* Leaf color themes */
-.card.leaf.navy       { border-color: #2a4a8a; }
-.card.leaf.navy b     { color: #6b8fd4; }
+/* Leaf color themes — Structure (dusty blue) */
+.card.leaf.navy       { border-color: #5a7aa8; border-left-color: #7b9cc4; }
+.card.leaf.navy b     { color: #a4bfdd; }
 
-.card.leaf.cyan       { border-color: #5ecece; }
-.card.leaf.cyan b     { color: #7de8e8; }
+/* Leaf color themes — Incidence (sage) */
+.card.leaf.cyan       { border-color: #5a9370; border-left-color: #7daf8e; }
+.card.leaf.cyan b     { color: #a4d4b4; }
 
-.card.leaf.green      { border-color: #4caf50; }
-.card.leaf.green b    { color: #72d176; }
+/* Leaf color themes — Parallel (warm sand) */
+.card.leaf.green      { border-color: #b8986a; border-left-color: #d4b896; }
+.card.leaf.green b    { color: #e0c8a0; }
 
-.card.leaf.orange     { border-color: #e88740; }
-.card.leaf.orange b   { color: #f0a060; }
+/* Leaf color themes — Real World (lavender) */
+.card.leaf.orange     { border-color: #8a72a8; border-left-color: #a893c4; }
+.card.leaf.orange b   { color: #c4b0dc; }
 
 /* ═══ SVG CONNECTION LINES ═══ */
 .connection {
   fill: none;
-  stroke: #e48bae;
+  stroke: rgba(200, 200, 220, 0.5);
   stroke-width: 2.5;
   stroke-linecap: round;
+}
+
+/* ═══ DIAGRAM OVERLAY ═══ */
+#diagram-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 10, 20, 0.75);
+  backdrop-filter: blur(6px);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+
+#diagram-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#diagram-panel {
+  background: #1e1f34;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  padding: 28px 32px 24px;
+  max-width: 520px;
+  width: 90%;
+  transform: scale(0.85);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+}
+
+#diagram-overlay.open #diagram-panel {
+  transform: scale(1);
+}
+
+#diagram-title {
+  color: #e8e6e3;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  text-align: center;
+}
+
+#diagram-subtitle {
+  color: rgba(232, 230, 227, 0.5);
+  font-size: 12px;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+#diagram-svg {
+  width: 100%;
+  background: #141524;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+#diagram-close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: none;
+  border: none;
+  color: rgba(232, 230, 227, 0.5);
+  font-size: 22px;
+  cursor: pointer;
+  transition: color 0.2s;
+  line-height: 1;
+}
+
+#diagram-close:hover {
+  color: #e8e6e3;
 }

@@ -17,16 +17,16 @@
   </div>
 
   <!-- BRANCHES (Level 1) -->
-  <div class="card branch teal hidden" id="structure" data-parent="center">
+  <div class="card branch hidden" id="structure" data-parent="center">
     2.1 STRUCTURE
   </div>
-  <div class="card branch teal hidden" id="incidence" data-parent="center">
+  <div class="card branch hidden" id="incidence" data-parent="center">
     2.2 INCIDENCE GEOMETRY
   </div>
-  <div class="card branch yellow hidden" id="parallel" data-parent="center">
+  <div class="card branch hidden" id="parallel" data-parent="center">
     2.3 PARALLEL POSTULATES
   </div>
-  <div class="card branch teal hidden" id="realworld" data-parent="center">
+  <div class="card branch hidden" id="realworld" data-parent="center">
     2.4 REAL WORLD
   </div>
 
@@ -146,6 +146,16 @@
     </ul>
   </div>
 
+</div>
+
+<!-- DIAGRAM POPUP OVERLAY -->
+<div id="diagram-overlay">
+  <div id="diagram-panel">
+    <button id="diagram-close">&times;</button>
+    <div id="diagram-title"></div>
+    <div id="diagram-subtitle">click anywhere outside to close</div>
+    <svg id="diagram-svg" viewBox="0 0 450 280"></svg>
+  </div>
 </div>
 
 <script src="script.js"></script>
