@@ -1,6 +1,6 @@
 # Interactive Mind Map — Axiomatic Systems & Incidence Geometry
 
-An interactive mind map covering Chapter 2 of Foundations of Geometry (MAT 320). Click to progressively explore topics — starting from the center and expanding outward through branches and sub-topics with animated connections.
+An interactive mind map covering Chapter 2 of Foundations of Geometry by Gerad Venema. Click to progressively explore topics — starting from the center and expanding outward through branches and sub-topics with animated connections.
 
 ## Topics Covered
 
